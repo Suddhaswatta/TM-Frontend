@@ -1,13 +1,15 @@
 .title{
     color: white;
-    margin-top: 1em;
+    margin: 1em;
+    font-size: 16px;
+
 }
 
 .page-card{
     background-color:whitesmoke;
     position: relative;
     border-radius: 1.5em 1.5em 0 0  ;
-    
+
     background-color:rgb(23,23,23)
 }
 .heading{
@@ -23,7 +25,7 @@ button{
 }
 .section{
     margin: 1em;;
-    border-radius: 1em;
+    border-radius: 5px;
 }
 
 .backlog{
@@ -33,7 +35,7 @@ button{
 .task{
 
     margin: 1em;
-    border-radius: 1em;
+    border-radius: 5px;
 }
 
 .progress{
@@ -49,11 +51,10 @@ button{
 .cdk-drop-list-dragging .cdk-drag {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-  
+
   /* Animate an item that has been dropped. */
   .cdk-drag-animating {
     transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
   }
 
 
-  

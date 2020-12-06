@@ -1,14 +1,17 @@
 <div class="page-card">
     <div class="heading">
         <button  mat-raised-button (click)=handleCreate()>Create Task</button>
-        
+
     </div>
     <mat-divider style="background-color:#101010;"></mat-divider>
 
+    <div class="title">Welcome {{user.lastname}},{{user.firstname}} !! to your dashboard</div>
+    <div class="title">Here you can manage and assign task to employees</div>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayout.md="row" style="margin-top:2em; width: 100%;" cdkDropListGroup>
 
-<div fxFlex.lg = 33.33% fxFlex.md = 33.33%  class="section backlog" cdkDropList  [cdkDropListData]="backlogs" 
+
+<div fxFlex.lg = 33.33% fxFlex.md = 33.33%  class="section backlog" cdkDropList  [cdkDropListData]="backlogs"
 (cdkDropListDropped)="drop($event)">
 
     <h2 fxLayoutAlign='center' class="title">Backlog</h2>
@@ -17,23 +20,23 @@
     <app-task-list *ngFor="let backlog of backlogs" cdkDrag [task]='backlog'></app-task-list>
 </div>
 
-<div fxFlex.lg = 33.33% fxFlex.md = 33.33% class="section progress"  cdkDropList  [cdkDropListData]="progresses" 
+<div fxFlex.lg = 33.33% fxFlex.md = 33.33% class="section progress"  cdkDropList  [cdkDropListData]="progresses"
 (cdkDropListDropped)="drop($event)">
 
     <h2 fxLayoutAlign='center' class="title">In Progress</h2>
     <mat-divider></mat-divider>
-    
+
     <app-task-list  *ngFor="let progress of progresses" cdkDrag [task]='progress'></app-task-list>
 </div>
 
 <div fxFlex.lg = 33.33% fxFlex.md = 33.33% class="section done" cdkDropList [cdkDropListData]='dones'
 (cdkDropListDropped)="drop($event)">
-    
+
     <h2 fxLayoutAlign='center' class="title" >Done</h2>
     <mat-divider></mat-divider>
     <app-task-list  *ngFor="let done of dones" cdkDrag [task]='done'></app-task-list>
 
 </div>
 
-</div>   
+</div>
 </div>

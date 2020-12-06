@@ -15,6 +15,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class DashboardComponent implements OnInit {
 
+  user;
   tasks: Task[];
   panelOpenState: boolean;
   backlogs: Task[];
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
               private comm: CommService) { }
 
   ngOnInit(): void {
+    this.user = sessionStorage.getItem('user');
     this.refresh();
     this.comm.getAction().subscribe(
       action => {
