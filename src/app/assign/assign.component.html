@@ -1,0 +1,31 @@
+<div>
+
+  <h2>Assign Task</h2>
+  <h4 >Assign task to an employee</h4>
+  <mat-divider></mat-divider>
+</div>
+
+
+
+  <mat-form-field  accent>
+    <mat-label>Choose Employee</mat-label>
+    <mat-select name = 'selectuser' [(ngModel)] = 'selectuser'>
+      <mat-option *ngFor="let item of useroptions | async " [value]=item.username >
+       {{item.lastname}},{{item.firstname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+<div style="margin-top: 4em; " fxLayoutAlign="end" style="background-color: #fff;">
+  <mat-divider ></mat-divider>
+  <div style="margin: 1em;">
+      <span>
+          <button style="background-color: dodgerblue ; color: white;" (click)=handleOk() mat-dialog-close='true'  mat-raised-button >Ok</button>
+      </span>
+      <span style="margin-left: 1em;">
+          <button mat-raised-button style="background-color: red ; color: white;" mat-raised-button mat-dialog-close="false" >Cancel</button>
+      </span>
+  </div>
+
+</div>

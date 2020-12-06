@@ -1,0 +1,17 @@
+mat-option{
+    color: red;
+}
+
+mat-form-field{
+    margin-top : 1em;
+}
+.backdropBackground{
+    background-color: tomato;
+}
+
+.page-card{
+    background-color:whitesmoke;
+    height: 100%;
+    border-radius: 1.5em 1.5em 0 0 ;
+    background-color: rgb(23, 23, 23);
+}

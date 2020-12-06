@@ -1,0 +1,51 @@
+<mat-card *ngIf="task" class="task"
+ >
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false "
+                        hideToggle class="actions">
+
+    <mat-expansion-panel-header>
+      <mat-panel-title >
+
+        <mat-card-header>
+            <mat-card-title style="color: white;text-transform: capitalize;" >{{task.title}}</mat-card-title>
+        </mat-card-header>
+
+
+      </mat-panel-title>
+
+      <mat-icon>{{panelOpenState ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+     </mat-expansion-panel-header>
+
+
+    <mat-card-content >
+        {{task.description}}
+    </mat-card-content>
+
+      <div fxLayout = 'row' fxLayout.xs = 'column' fxLayout.md='column'>
+        <span style="padding-left: 1em;">
+          <span>Edit</span><button (click)=handleEdit() mat-icon-button><mat-icon>edit</mat-icon></button>
+      </span>
+      <span style="padding-left: 1em;">
+        <span>Delete</span><button (click)=handleDelete(task.id) mat-icon-button><mat-icon>delete</mat-icon></button>
+    </span>
+      <span style="padding-left: 1em;" (click)=handleAssign() *ngIf = 'isAdmin'>
+          <span>Assign task to</span><button mat-icon-button
+
+
+          ><mat-icon>account_circle</mat-icon></button>
+
+      </span>
+
+      </div>
+
+
+      <div style="padding-left: 1em;">
+        <span>Deadline:</span><span style="padding: 1em;">{{task.deadline | date: 'dd/MM/yyyy'}}</span>
+      </div>
+
+
+  </mat-expansion-panel>
+
+</mat-card>

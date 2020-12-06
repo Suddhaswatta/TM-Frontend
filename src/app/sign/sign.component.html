@@ -1,0 +1,70 @@
+<mat-card class="page-card">
+
+<mat-card fxFlex.lg=25% fxFlex.md=40% fxFlex.xs=100.00% style="height: 75%; margin: auto;background-color:#fff;">
+
+
+    <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+        <mat-tab label="Sign In" >
+            <form style="margin-top: 100px;" (submit)=handleLogin()>
+
+                <mat-form-field hintLabel="Max 10 characters" appearance="outline" style="width: 100%;">
+                    <mat-label  >Enter your ID</mat-label>
+                    <input name="id" matInput #input maxlength="10" placeholder="Ex. Unique ID" [(ngModel)]="id">
+                    <mat-hint>{{input.value?.length || 0}}/10</mat-hint>
+                  </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 100%;margin-top: 25px;" >
+                    <mat-label>Enter your password</mat-label>
+                    <input name="password" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon style="color: #f50057;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+
+                  <mat-divider style="margin-top: 1em; "></mat-divider>
+
+                  <button  mat-raised-button style="height: 3em; background-color: #0d47a1;width: 100%; color: #fff; border-radius: 5px;">Log In </button>
+
+                </form>
+
+
+        </mat-tab>
+        <mat-tab label="Sign Up">
+
+            <form style="margin-top: 1em;" (submit)=handleRegister()>
+
+                <mat-form-field hintLabel="Max 14 characters" appearance="outline" style="width: 100%;">
+                    <mat-label  >Enter your First Name</mat-label>
+                    <input matInput #input maxlength="14" minlength="3" placeholder="Ex. First Name" name="firstname" [(ngModel)]='firstname'>
+                    <mat-error>First Name must have at-least 3 characters</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field hintLabel="Max 14 characters" minlength="6" appearance="outline" style="width: 100%;">
+                    <mat-label  >Enter your Last Name</mat-label>
+                    <input matInput #input maxlength="14" placeholder="Ex. Last Name ID" [(ngModel)]='lastname' name='lastname'>
+                  </mat-form-field>
+
+
+                    <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Choose a role</mat-label>
+                    <mat-select  [(ngModel)]='role' name='role'>
+                    <mat-option value="user" select>User</mat-option>
+                    <mat-option value="admin">Admin</mat-option>
+                    </mat-select>
+
+                    </mat-form-field>
+                    <small *ngIf="!isRole" style="color: red;">Select a Role</small>
+
+                    <mat-divider style="margin-top: 1em;margin-bottom: 1em;"></mat-divider>
+
+                <button mat-raised-button  style="height: 3em; background-color: #0d47a1;width: 100%; color: #fff; border-radius: 5px;margin-top: 2em;">Register Now </button>
+
+                  </form>
+
+        </mat-tab>
+      </mat-tab-group>
+
+</mat-card>
+
+
+</mat-card>

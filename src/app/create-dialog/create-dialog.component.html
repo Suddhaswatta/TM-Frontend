@@ -1,0 +1,67 @@
+<div class="header">
+
+    <h2>Task</h2>
+    <h4 >Create or edit a Task with description with deadline to complete a task</h4>
+    <mat-divider></mat-divider>
+</div>
+
+
+<mat-card class="page-card">
+
+
+        <div>
+        <mat-form-field  appearance="outline" fxFlex.md='60%;' fxFlex.sm='100%;' fxFlex.lg='60%;'>
+            <mat-label  >Enter Task Title</mat-label>
+            <input name="title" matInput #input minlength="6" maxlength="15" placeholder="Title" [(ngModel)]="title" >
+            <mat-hint>Characters Entered:{{input.value?.length || 0}}</mat-hint>
+            <mat-error >Title must be minimum of 6 characters </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field  fxFlex.md='60%;' fxFlex.sm='100%;' fxFlex.lg='60%;'>
+                <mat-label>Enter Task Description</mat-label>
+                <textarea
+                matInput
+                          minlength="14"
+                          #textarea
+                          name = 'description'
+                          [(ngModel)] = 'description'
+                          cdkTextareaAutosize
+                          #autosize="cdkTextareaAutosize"
+                          cdkAutosizeMinRows="1"
+                          cdkAutosizeMaxRows="5"></textarea>
+                          <mat-hint>Characters Entered:{{textarea.value?.length || 0}}</mat-hint>
+                          <mat-error  >Description must be minimum of 14 characters </mat-error>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a deadline</mat-label>
+                <input matInput [matDatepicker]='picker' name='deadline' [(ngModel)]=deadline
+
+                >
+                <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                <mat-datepicker #picker (change)=dateChanged()></mat-datepicker>
+                <p></p>
+              <small  *ngIf="!isDateValid" style="color: red;">Select greater than today's date</small>
+
+              </mat-form-field>
+
+        </div>
+
+
+
+
+</mat-card>
+<div style="margin-top: 4em; " fxLayoutAlign="end" style="background-color: #282828;">
+    <mat-divider ></mat-divider>
+    <div style="margin: 1em;">
+        <span>
+            <button style="background-color: dodgerblue ; color: white;" (click)=handleSave() mat-dialog-close='true' [disabled]="!this.checkFormValid()" mat-raised-button >Save</button>
+        </span>
+        <span style="margin-left: 1em;">
+            <button mat-raised-button style="background-color: red ; color: white;" mat-raised-button mat-dialog-close="false" >Cancel</button>
+        </span>
+    </div>
+
+</div>

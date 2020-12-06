@@ -1,0 +1,23 @@
+<mat-card>
+<h2 mat-dialog-title>Copy your generated ID & Password</h2>
+<mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Generated ID</mat-label>
+            <input style="color: #000;" matInput disabled [(ngModel)]=id>
+        </mat-form-field>
+        <button [cdkCopyToClipboard]="id" mat-icon-button><mat-icon>content_copy</mat-icon></button>
+        <p></p>
+        <mat-form-field>
+            <mat-label>Generated Password</mat-label>
+            <input style="color: #000;" matInput disabled [(ngModel)]=password>
+        </mat-form-field>
+        <button [cdkCopyToClipboard]="password" mat-icon-button><mat-icon>content_copy</mat-icon></button>
+    </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="end">
+    <button style="background-color:dodgerblue;color: #fff;" mat-raised-button [mat-dialog-close] (click)='handleAccept()' cdkFocusInitialClose>Accept</button>
+    <button style="background-color:red;color: #fff;" mat-raised-button [mat-dialog-close] cdkFocusInitialClose>Deny</button>
+  </mat-dialog-actions>
+</mat-card>

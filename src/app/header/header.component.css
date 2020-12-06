@@ -1,0 +1,18 @@
+mat-toolbar{
+
+    
+    background-color:  dodgerblue;
+}
+
+.end{
+    margin: auto;
+}
+
+.nav-item{
+    padding-left: 5px;
+    color:white;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
