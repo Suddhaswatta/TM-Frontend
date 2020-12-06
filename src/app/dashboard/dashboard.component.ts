@@ -7,6 +7,7 @@ import { CreateDialogComponent } from '../create-dialog/create-dialog.component'
 import { TaskListComponent } from '../task-list/task-list.component';
 import {Task} from '../task';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { User } from '../user';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class DashboardComponent implements OnInit {
 
-  user;
+  user: User;
   tasks: Task[];
   panelOpenState: boolean;
   backlogs: Task[];
@@ -27,7 +28,7 @@ export class DashboardComponent implements OnInit {
               private comm: CommService) { }
 
   ngOnInit(): void {
-    this.user = sessionStorage.getItem('user');
+    this.user = JSON.parse(sessionStorage.getItem('user'));
     this.refresh();
     this.comm.getAction().subscribe(
       action => {

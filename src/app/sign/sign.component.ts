@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RegisterDiagComponent } from '../register-diag/register-diag.component';
 import { LoginService } from '../login.service';
 import { Subject } from 'rxjs';
+import { User } from '../user';
 
 @Component({
   selector: 'app-sign',
@@ -17,6 +18,8 @@ export class SignComponent implements OnInit {
 
   notify = new Subject();
   hide: boolean = true;
+
+
   id: any;
   password: any;
   role: string;
@@ -27,6 +30,7 @@ export class SignComponent implements OnInit {
   constructor(private router: Router, private dialog: MatDialog, private loginservice: LoginService) { }
   isUserLoggedIn$ = this.loginservice.isUserLoggedIn();
   ngOnInit(): void {
+
   }
 
 
