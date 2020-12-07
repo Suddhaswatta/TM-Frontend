@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './register-diag.component.html',
   styleUrls: ['./register-diag.component.css']
 })
-export class RegisterDiagComponent implements OnInit, OnDestroy {
+export class RegisterDiagComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA)public data: any,
               private loginservice: LoginService,
@@ -18,7 +18,7 @@ export class RegisterDiagComponent implements OnInit, OnDestroy {
 
   id;
   password;
-  notify = new Subject();
+
 
   ngOnInit(): void {
     console.log('Registration data :'  + JSON.stringify(this.data));
@@ -36,7 +36,7 @@ export class RegisterDiagComponent implements OnInit, OnDestroy {
       role: this.data.role
     };
 
-    this.loginservice.register$(object).pipe(takeUntil(this.notify)).subscribe((res) => {
+    this.loginservice.register$(object).subscribe((res) => {
       this.comm.setAction(true);
       console.log('Register' + JSON.stringify(res));
       this.comm.setAction(false);
@@ -92,13 +92,13 @@ export class RegisterDiagComponent implements OnInit, OnDestroy {
       l = lastname.charAt(0)
       f = firstname.charAt(0)
       alpha = f + l;
-      generatedID = alpha + this.generatePattern('0123456789', 6);
+      generatedID = alpha + this.generatePattern('0123456789', 3);
       return generatedID;
     }else{
       l = firstname.charAt(1);
       f = firstname.charAt(0);
       alpha = f + l;
-      generatedID = alpha + this.generatePattern('0123456789', 6);
+      generatedID = alpha + this.generatePattern('0123456789', 3);
       return generatedID;
 
     }
@@ -126,11 +126,5 @@ export class RegisterDiagComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  ngOnDestroy(): void {
-    this.notify.next();
-    this.notify.complete();
-    console.log('Destroyed');
-
-  }
 
 }

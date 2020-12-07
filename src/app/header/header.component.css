@@ -1,7 +1,7 @@
 mat-toolbar{
 
-    
-    background-color:  dodgerblue;
+
+    background-color: white;
 }
 
 .end{
@@ -10,7 +10,7 @@ mat-toolbar{
 
 .nav-item{
     padding-left: 5px;
-    color:white;
+    color:dodgerblue;
 }
 
 .spacer{

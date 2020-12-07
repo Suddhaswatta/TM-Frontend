@@ -2,10 +2,10 @@
         <span class="nav-item app-name">Task Management</span>
         <span class="spacer"></span>
 
-<!--
+
         <button mat-icon-button class="nav-item" *ngIf='(isUserLoggedIn$ | async)'>
             <mat-icon>account_circle</mat-icon>
-          </button> -->
+          </button>
           <button mat-icon-button class="nav-item" (click)=handlelogout() *ngIf='(isUserLoggedIn$ | async)'>
             <mat-icon>login</mat-icon>
           </button>
@@ -13,3 +13,4 @@
 
 
 </mat-toolbar>
+<mat-divider style="background-color: #ddd;"></mat-divider>

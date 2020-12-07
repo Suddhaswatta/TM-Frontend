@@ -9,16 +9,17 @@
     position: relative;
     border-radius: 1.5em 1.5em 0 0  ;
 
-    background-color:rgb(23,23,23)
+    background-color:white;
 }
 .heading{
+  background-color: whitesmoke;
     width: 100%;
     height: 5em;
 }
 
 button{
 
-    background-color: rgb(22, 128, 235);
+    background-color: #006ad1;
     color: white;
     margin:1em 0 0 2em;
 }
@@ -28,7 +29,7 @@ button{
 }
 
 .backlog{
-    background-color:rgb(82, 18, 146);
+    background-color:#282828;
     color: #fff;
 }
 .task{
@@ -38,7 +39,7 @@ button{
 }
 
 .progress{
-    background-color:rgb(221, 14, 83);
+    background-color:#006ad1;
     color: #fff;
 }
 
